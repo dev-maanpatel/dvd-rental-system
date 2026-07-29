@@ -2,31 +2,22 @@ require("dotenv").config();
 
 const app = require("./app");
 const connectDB = require("./config/db");
-const Country = require("./models/countryModel");
 
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
     try {
+        // Connect MongoDB
         await connectDB();
 
-        // Create one sample document if collection is empty
-        const count = await Country.countDocuments();
-
-        if (count === 0) {
-            await Country.create({
-                countryName: "India"
-            });
-
-            console.log("✅ Sample Country Inserted");
-        }
-
+        // Start Server
         app.listen(PORT, () => {
             console.log(`🚀 Server Running on http://localhost:${PORT}`);
         });
 
     } catch (error) {
-        console.log(error);
+        console.log("❌ Server Error");
+        console.log(error.message);
     }
 };
 

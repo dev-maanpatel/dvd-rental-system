@@ -1,21 +1,42 @@
 const express = require("express");
 const cors = require("cors");
 
+// Import Routes
 const countryRoutes = require("./routes/countryRoutes");
+const cityRoutes = require("./routes/cityRoutes");
 
 const app = express();
 
+// ========================
+// Middlewares
+// ========================
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use("/api", countryRoutes);
-
+// ========================
+// Home Route
+// ========================
 app.get("/", (req, res) => {
-    res.json({
+    res.status(200).json({
         success: true,
-        message: "DVD Rental API Running Successfully"
+        message: "Welcome to DVD Rental System API"
+    });
+});
+
+// ========================
+// API Routes
+// ========================
+app.use("/api", countryRoutes);
+app.use("/api", cityRoutes);
+
+// ========================
+// 404 Route
+// ========================
+app.use((req, res) => {
+    res.status(404).json({
+        success: false,
+        message: "Route Not Found"
     });
 });
 
