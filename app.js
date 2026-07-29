@@ -4,6 +4,8 @@ const cors = require("cors");
 // Import Routes
 const countryRoutes = require("./routes/countryRoutes");
 const cityRoutes = require("./routes/cityRoutes");
+const addressRoutes = require("./routes/addressRoutes");
+const languageRoutes = require("./routes/languageRoutes");
 
 const app = express();
 
@@ -29,6 +31,8 @@ app.get("/", (req, res) => {
 // ========================
 app.use("/api", countryRoutes);
 app.use("/api", cityRoutes);
+app.use("/api", addressRoutes);
+app.use("/api", languageRoutes);
 
 // ========================
 // 404 Route
