@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 // Import Routes
+const authRoutes = require("./routes/authRoutes");
 const countryRoutes = require("./routes/countryRoutes");
 const cityRoutes = require("./routes/cityRoutes");
 const addressRoutes = require("./routes/addressRoutes");
@@ -27,7 +28,12 @@ app.get("/", (req, res) => {
 });
 
 // ========================
-// API Routes
+// Authentication Routes
+// ========================
+app.use("/api", authRoutes);
+
+// ========================
+// Protected API Routes
 // ========================
 app.use("/api", countryRoutes);
 app.use("/api", cityRoutes);
