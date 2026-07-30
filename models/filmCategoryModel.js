@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const inventorySchema = new mongoose.Schema(
+const filmCategorySchema = new mongoose.Schema(
     {
         filmId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -8,9 +8,9 @@ const inventorySchema = new mongoose.Schema(
             required: true
         },
 
-        storeId: {
+        categoryId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Store",
+            ref: "Category",
             required: true
         }
     },
@@ -19,4 +19,4 @@ const inventorySchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("Inventory", inventorySchema);
+module.exports = mongoose.model("FilmCategory", filmCategorySchema);

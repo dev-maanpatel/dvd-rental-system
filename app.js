@@ -11,6 +11,12 @@ const categoryRoutes = require("./routes/categoryRoutes");
 const actorRoutes = require("./routes/actorRoutes");
 const filmRoutes = require("./routes/filmRoutes");
 const filmActorRoutes = require("./routes/filmActorRoutes");
+const filmCategoryRoutes = require("./routes/filmCategoryRoutes");
+const staffRoutes = require("./routes/staffRoutes");
+const storeRoutes = require("./routes/storeRoutes");
+const inventoryRoutes = require("./routes/inventoryRoutes");
+const customerRoutes = require("./routes/customerRoutes");
+const rentalRoutes = require("./routes/rentalRoutes");
 
 const app = express();
 
@@ -47,7 +53,12 @@ app.use("/api", categoryRoutes);
 app.use("/api", actorRoutes);
 app.use("/api", filmRoutes);
 app.use("/api", filmActorRoutes);
-
+app.use("/api", filmCategoryRoutes);
+app.use("/api", staffRoutes);
+app.use("/api", storeRoutes);
+app.use("/api", inventoryRoutes);
+app.use("/api", customerRoutes);
+app.use("/api", rentalRoutes);
 // ========================
 // 404 Route
 // ========================
