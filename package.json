@@ -10,13 +10,13 @@
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
-    "nodejs",
-    "express",
-    "mongodb",
-    "mongoose",
-    "rest-api",
-    "api",
-    "dvd-rental"
+      "nodejs",
+      "express",
+      "mongodb",
+      "mongoose",
+      "rest-api",
+      "api",
+      "dvd-rental"
   ],
   "author": "",
   "license": "ISC",

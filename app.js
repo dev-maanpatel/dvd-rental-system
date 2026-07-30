@@ -7,6 +7,7 @@ const countryRoutes = require("./routes/countryRoutes");
 const cityRoutes = require("./routes/cityRoutes");
 const addressRoutes = require("./routes/addressRoutes");
 const languageRoutes = require("./routes/languageRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/api", countryRoutes);
 app.use("/api", cityRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", languageRoutes);
+app.use("/api", categoryRoutes);
 
 // ========================
 // 404 Route

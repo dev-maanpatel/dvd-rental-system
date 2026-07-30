@@ -1,5 +1,7 @@
 const express = require("express");
-
+const {
+    protect, authorize 
+} = require ('../middlewares/authMiddleware');
 const {
     addLanguage,
     getAllLanguages,
@@ -11,7 +13,7 @@ const {
 const router = express.Router();
 
 // Add Language
-router.post("/add-language", addLanguage);
+router.post("/add-language",  protect, authorize('admin'),addLanguage);
 
 // Get All Languages
 router.get("/get-languages", getAllLanguages);
@@ -20,9 +22,10 @@ router.get("/get-languages", getAllLanguages);
 router.get("/get-language/:id", getSingleLanguage);
 
 // Update Language
-router.put("/update-language/:id", updateLanguage);
+router.put("/update-language/:id",  protect, authorize('admin'),updateLanguage);
 
 // Delete Language
-router.delete("/delete-language/:id", deleteLanguage);
+router.delete("/delete-language/:id",  protect, authorize('admin')
+,deleteLanguage);
 
 module.exports = router;

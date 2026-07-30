@@ -88,6 +88,9 @@ const login = async (req, res) => {
 
         }
 
+        const secret = process.env.JWT_SECRET || 'Login_JWT_Token';
+        const expiresIn = process.env.JWT_EXPIRE || '7d';
+
         const token = jwt.sign(
 
             {
@@ -95,10 +98,10 @@ const login = async (req, res) => {
                 email: user.email
             },
 
-            process.env.JWT_SECRET,
+            secret,
 
             {
-                expiresIn: process.env.JWT_EXPIRE
+                expiresIn
             }
 
         );

@@ -1,4 +1,7 @@
 const express = require("express");
+const {
+    protect, authorize 
+} = require ('../middlewares/authMiddleware');
 
 const {
     addCountry,
@@ -11,7 +14,7 @@ const {
 const router = express.Router();
 
 // Add Country
-router.post("/add-country", addCountry);
+router.post("/add-country", protect, authorize('admin'), addCountry);
 
 // Get All Countries
 router.get("/get-countries", getAllCountries);
@@ -20,9 +23,9 @@ router.get("/get-countries", getAllCountries);
 router.get("/get-country/:id", getSingleCountry);
 
 // Update Country
-router.put("/update-country/:id", updateCountry);
+router.put("/update-country/:id", protect, authorize('admin'), updateCountry);
 
 // Delete Country
-router.delete("/delete-country/:id", deleteCountry);
+router.delete("/delete-country/:id",  protect, authorize('admin'),deleteCountry);
 
 module.exports = router;

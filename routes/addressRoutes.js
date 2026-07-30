@@ -1,4 +1,7 @@
 const express = require("express");
+const {
+    protect, authorize 
+} = require ('../middlewares/authMiddleware');
 
 const {
     addAddress,
@@ -10,14 +13,14 @@ const {
 
 const router = express.Router();
 
-router.post("/add-address", addAddress);
+router.post("/add-address", protect, authorize('admin') , addAddress);
 
 router.get("/get-addresses", getAllAddresses);
 
 router.get("/get-address/:id", getSingleAddress);
 
-router.put("/update-address/:id", updateAddress);
+router.put("/update-address/:id", protect, authorize('admin'), updateAddress);
 
-router.delete("/delete-address/:id", deleteAddress);
+router.delete("/delete-address/:id", protect, authorize('admin'), deleteAddress);
 
 module.exports = router;
