@@ -17,10 +17,10 @@ const router = express.Router();
 router.post("/add-country", protect, authorize('admin'), addCountry);
 
 // Get All Countries
-router.get("/get-countries", getAllCountries);
+router.get("/get-countries", protect, authorize("admin" ,"staff"), getAllCountries);
 
 // Get Single Country
-router.get("/get-country/:id", getSingleCountry);
+router.get("/get-country/:id", protect, authorize("admin" ,"staff"), getSingleCountry);
 
 // Update Country
 router.put("/update-country/:id", protect, authorize('admin'), updateCountry);

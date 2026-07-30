@@ -8,6 +8,9 @@ const cityRoutes = require("./routes/cityRoutes");
 const addressRoutes = require("./routes/addressRoutes");
 const languageRoutes = require("./routes/languageRoutes");
 const categoryRoutes = require("./routes/categoryRoutes");
+const actorRoutes = require("./routes/actorRoutes");
+const filmRoutes = require("./routes/filmRoutes");
+const filmActorRoutes = require("./routes/filmActorRoutes");
 
 const app = express();
 
@@ -41,6 +44,9 @@ app.use("/api", cityRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", languageRoutes);
 app.use("/api", categoryRoutes);
+app.use("/api", actorRoutes);
+app.use("/api", filmRoutes);
+app.use("/api", filmActorRoutes);
 
 // ========================
 // 404 Route

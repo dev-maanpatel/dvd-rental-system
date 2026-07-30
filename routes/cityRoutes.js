@@ -14,9 +14,9 @@ const router = express.Router();
 
 router.post("/add-city", protect, authorize('admin'), addCity);
 
-router.get("/get-cities", getAllCities);
+router.get("/get-cities", protect, authorize("admin" ,"staff"), getAllCities);
 
-router.get("/get-city/:id", getSingleCity);
+router.get("/get-city/:id", protect, authorize("admin" ,"staff"), getSingleCity);
 
 router.put("/update-city/:id", protect, authorize('admin') ,updateCity);
 

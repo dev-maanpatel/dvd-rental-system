@@ -19,10 +19,10 @@ const router = express.Router();
 router.post("/add-category", protect, authorize("admin"), addCategory);
 
 // Get All Categories
-router.get("/get-categories", getAllCategories);
+router.get("/get-categories",protect, authorize("admin" ,"staff"), getAllCategories);
 
 // Get Single Category
-router.get("/get-category/:id",getSingleCategory);
+router.get("/get-category/:id", protect, authorize("admin" ,"staff"),getSingleCategory);
 
 // Update Category
 router.put("/update-category/:id", protect, authorize("admin"), updateCategory);

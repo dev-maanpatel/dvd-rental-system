@@ -16,10 +16,10 @@ const router = express.Router();
 router.post("/add-language",  protect, authorize('admin'),addLanguage);
 
 // Get All Languages
-router.get("/get-languages", getAllLanguages);
+router.get("/get-languages", protect, authorize("admin" ,"staff"), getAllLanguages);
 
 // Get Single Language
-router.get("/get-language/:id", getSingleLanguage);
+router.get("/get-language/:id", protect, authorize("admin" ,"staff"), getSingleLanguage);
 
 // Update Language
 router.put("/update-language/:id",  protect, authorize('admin'),updateLanguage);

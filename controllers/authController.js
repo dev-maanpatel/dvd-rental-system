@@ -10,7 +10,7 @@ const signup = async (req, res) => {
 
     try {
 
-        const { fullName, email, password } = req.body;
+        const { fullName, email, password,role } = req.body;
 
         const user = await User.findOne({ email });
 
@@ -27,7 +27,8 @@ const signup = async (req, res) => {
 
             fullName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            role
 
         });
 

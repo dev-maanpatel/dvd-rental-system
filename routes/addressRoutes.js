@@ -15,9 +15,9 @@ const router = express.Router();
 
 router.post("/add-address", protect, authorize('admin') , addAddress);
 
-router.get("/get-addresses", getAllAddresses);
+router.get("/get-addresses", protect, authorize("admin" ,"staff"), getAllAddresses);
 
-router.get("/get-address/:id", getSingleAddress);
+router.get("/get-address/:id", protect, authorize("admin" ,"staff"), getSingleAddress);
 
 router.put("/update-address/:id", protect, authorize('admin'), updateAddress);
 
